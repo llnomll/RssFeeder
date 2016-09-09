@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -31,15 +32,49 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        ArrayList<String> items = new ArrayList<>();
+        final ArrayList<String> items = new ArrayList<>();
         items.add("중앙일보");
         items.add("조선일보");
         items.add("동아일보");
         items.add("한겨례");
         items.add("매일경제");
+        items.add("CNN");
+        items.add("NewYork Times");
 
         CustomAdapter adapter = new CustomAdapter(this,0,items);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String company="";
+                switch (items.get(i)) {
+                    case "중앙일보":
+                        company = CategoryCreater.COMPANY_JOONGANG;
+                        break;
+                    case "조선일보":
+                        company = CategoryCreater.COMPANY_JOSUN;
+                        break;
+                    case "동아일보":
+                        company = CategoryCreater.COMPANY_DONGA;
+                        break;
+                    case "한겨례":
+                        company = CategoryCreater.COMPANY_HAN;
+                        break;
+                    case "매일경제":
+                        company = CategoryCreater.COMPANY_MK;
+                        break;
+                    case "CNN":
+                        company = CategoryCreater.COMPANY_CNN;
+                        break;
+                    case "NewYork Times":
+                        company = CategoryCreater.COMPANY_NY;
+                        break;
+                }
+                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                intent.putExtra("company",company);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -73,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setImageResource(R.drawable.han_1);
             else if ("매일경제".equals(items.get(position)))
                 imageView.setImageResource(R.drawable.mk_1);
+            else if ("CNN".equals(items.get(position)))
+                imageView.setImageResource(R.drawable.cnn);
+            else if ("NewYork Times".equals(items.get(position)))
+                imageView.setImageResource(R.drawable.nytimes);
 
             TextView textView = (TextView) v.findViewById(R.id.textView);
             textView.setText(items.get(position));

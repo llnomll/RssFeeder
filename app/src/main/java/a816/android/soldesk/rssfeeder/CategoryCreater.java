@@ -12,6 +12,9 @@ public class CategoryCreater {
     public static final String COMPANY_DONGA = "dong";
     public static final String COMPANY_HAN = "han";
     public static final String COMPANY_MK = "mk";
+    public static final String COMPANY_CNN = "cnn";
+    public static final String COMPANY_NY = "ny";
+
 
 
     private static final String[] JUNG_TITLE = {"주요뉴스","인기뉴스","사회","경제","정치","IT/과학","스포츠","연예"};
@@ -71,6 +74,30 @@ public class CategoryCreater {
             "http://file.mk.co.kr/news/rss/rss_50000001.xml"
     };
 
+    private static final String[] CNN_TITLE = {"Top Stories","World","Americas","Asia","Europe","U.S.","Money"};
+    private static final String[] CNN_URL = {
+            "http://rss.cnn.com/rss/edition.rss",
+            "http://rss.cnn.com/rss/edition_world.rss",
+            "http://rss.cnn.com/rss/edition_americas.rss",
+            "http://rss.cnn.com/rss/edition_asia.rss",
+            "http://rss.cnn.com/rss/edition_europe.rss",
+            "http://rss.cnn.com/rss/edition_us.rss",
+            "http://rss.cnn.com/rss/money_news_international.rss"
+    };
+
+    private static final String[] NY_TITLE = {"World","U.S.","Businss","Technology","Sports","Science","Health"};
+    private static final String[] NY_URL = {
+            "http://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+            "http://rss.nytimes.com/services/xml/rss/nyt/US.xml",
+            "http://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+            "http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+            "http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml",
+            "http://rss.nytimes.com/services/xml/rss/nyt/Science.xml",
+            "http://rss.nytimes.com/services/xml/rss/nyt/Health.xml"
+    };
+
+
+
 
 
     public static ArrayList<CategoryInfo> create(String company){
@@ -103,6 +130,18 @@ public class CategoryCreater {
             case COMPANY_MK:
                 for(int i = 0; i< MK_TITLE.length; i++) {
                     CategoryInfo ci = new CategoryInfo(MK_TITLE[i], MK_URL[i],"EUC-KR");
+                    result.add(ci);
+                }
+                break;
+            case COMPANY_CNN:
+                for(int i = 0; i< CNN_TITLE.length; i++) {
+                    CategoryInfo ci = new CategoryInfo(CNN_TITLE[i], CNN_URL[i],"UTF-8");
+                    result.add(ci);
+                }
+                break;
+            case COMPANY_NY:
+                for(int i = 0; i< NY_TITLE.length; i++) {
+                    CategoryInfo ci = new CategoryInfo(NY_TITLE[i], NY_URL[i],"UTF-8");
                     result.add(ci);
                 }
                 break;

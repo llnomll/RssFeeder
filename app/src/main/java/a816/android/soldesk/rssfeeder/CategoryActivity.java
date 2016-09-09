@@ -37,6 +37,9 @@ public class CategoryActivity extends AppCompatActivity {
         if (title.equals(CategoryCreater.COMPANY_DONGA)) textViewTitle.setText("동아일보");
         if (title.equals(CategoryCreater.COMPANY_HAN)) textViewTitle.setText("한겨례");
         if (title.equals(CategoryCreater.COMPANY_MK)) textViewTitle.setText("매일경제");
+        if (title.equals(CategoryCreater.COMPANY_CNN)) textViewTitle.setText("CNN");
+        if (title.equals(CategoryCreater.COMPANY_NY)) textViewTitle.setText("NewYork Times");
+
 
         btnBacktoMain = (Button) findViewById(R.id.btnBacktoMain);
 
