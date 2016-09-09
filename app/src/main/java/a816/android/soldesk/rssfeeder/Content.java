@@ -27,6 +27,7 @@ public class Content extends AppCompatActivity {
         String url = getIntent().getStringExtra("url");
         wv = (WebView) findViewById(R.id.webview_content);
         wv.setWebViewClient(new WebViewClient());
+        wv.getSettings().setJavaScriptEnabled(true);
         wv.getSettings().setSupportZoom(true);
         wv.getSettings().setDisplayZoomControls(true);
         wv.getSettings().setBuiltInZoomControls(true);

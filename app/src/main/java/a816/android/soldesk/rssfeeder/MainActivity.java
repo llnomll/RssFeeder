@@ -1,55 +1,85 @@
 package a816.android.soldesk.rssfeeder;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton btnJoong,btnCho,btnDong,btnHan,btnMk;
+    ListView listView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnJoong = (ImageButton) findViewById(R.id.btnjoongang);
-        btnCho = (ImageButton) findViewById(R.id.btnchosun);
-        btnDong = (ImageButton) findViewById(R.id.btndong);
-        btnHan = (ImageButton) findViewById(R.id.btnhan);
-        btnMk = (ImageButton) findViewById(R.id.btnmk);
+        listView = (ListView)this.findViewById(R.id.listView01);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
+        ArrayList<String> items = new ArrayList<>();
+        items.add("중앙일보");
+        items.add("조선일보");
+        items.add("동아일보");
+        items.add("한겨례");
+        items.add("매일경제");
+
+        CustomAdapter adapter = new CustomAdapter(this,0,items);
+        listView.setAdapter(adapter);
 
     }
 
-    public void onClickJoong(View view) {
-        Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company",CategoryCreater.COMPANY_JOONGANG);
-        startActivity(intent);
+
+    private class CustomAdapter extends ArrayAdapter<String> {
+        private ArrayList<String> items;
+
+        public CustomAdapter(Context context, int textViewResourceId, ArrayList<String> object) {
+            super(context, textViewResourceId, object);
+            this.items = object;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = convertView;
+            if (v == null) {
+                LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                v = vi.inflate(R.layout.listview_item, null);
+            }
+
+            // ImageView 인스턴스
+            ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
+
+            // 리스트뷰의 아이템에 이미지를 변경한다.
+            if ("중앙일보".equals(items.get(position)))
+                imageView.setImageResource(R.drawable.joongang_1);
+            else if ("조선일보".equals(items.get(position)))
+                imageView.setImageResource(R.drawable.chosun_1);
+            else if ("동아일보".equals(items.get(position)))
+                imageView.setImageResource(R.drawable.donga_1);
+            else if ("한겨례".equals(items.get(position)))
+                imageView.setImageResource(R.drawable.han_1);
+            else if ("매일경제".equals(items.get(position)))
+                imageView.setImageResource(R.drawable.mk_1);
+
+            TextView textView = (TextView) v.findViewById(R.id.textView);
+            textView.setText(items.get(position));
+
+            return v;
+        }
+
     }
 
-    public void onClickcho(View view) {
-        Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company",CategoryCreater.COMPANY_JOSUN);
-        startActivity(intent);
-    }
-
-    public void onClickdong(View view) {
-        Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company",CategoryCreater.COMPANY_DONGA);
-        startActivity(intent);
-    }
-
-    public void onClickhan(View view) {
-        Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company",CategoryCreater.COMPANY_HAN);
-        startActivity(intent);
-    }
-
-    public void onClickmk(View view) {
-        Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company",CategoryCreater.COMPANY_MK);
-        startActivity(intent);
-    }
 }

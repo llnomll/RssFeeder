@@ -3,63 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9E5ff"
+    android:background="#4C4C4C"
     android:orientation="vertical"
     tools:context="a816.android.soldesk.rssfeeder.MainActivity">
 
-    <ImageButton
-        android:id="@+id/btnjoongang"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/joongang"
-        android:onClick="onClickJoong" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
 
-    <ImageButton
-        android:id="@+id/btnchosun"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/chosun"
-        android:onClick="onClickcho" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="신문사별 뉴스보기"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
 
-    <ImageButton
-        android:id="@+id/btndong"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/donga"
-        android:onClick="onClickdong" />
 
-    <ImageButton
-        android:id="@+id/btnhan"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/han"
-        android:onClick="onClickhan" />
+    </android.support.v7.widget.Toolbar>
 
-    <ImageButton
-        android:id="@+id/btnmk"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/mk"
-        android:onClick="onClickmk" />
+    <ListView
+        android:id="@+id/listView01"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/listviewstyle"
+        android:divider="#4C4C4C"
+        android:dividerHeight="10dp"></ListView>
 
 </LinearLayout>
