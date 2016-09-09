@@ -25,31 +25,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickJoong(View view) {
         Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company","joong");
+        intent.putExtra("company",CategoryCreater.COMPANY_JOONGANG);
         startActivity(intent);
     }
 
     public void onClickcho(View view) {
         Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company","cho");
+        intent.putExtra("company",CategoryCreater.COMPANY_JOSUN);
         startActivity(intent);
     }
 
     public void onClickdong(View view) {
         Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company","dong");
+        intent.putExtra("company",CategoryCreater.COMPANY_DONGA);
         startActivity(intent);
     }
 
     public void onClickhan(View view) {
         Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company","han");
+        intent.putExtra("company",CategoryCreater.COMPANY_HAN);
         startActivity(intent);
     }
 
     public void onClickmk(View view) {
         Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
-        intent.putExtra("company","mk");
+        intent.putExtra("company",CategoryCreater.COMPANY_MK);
         startActivity(intent);
     }
 }

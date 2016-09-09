@@ -32,11 +32,11 @@ public class CategoryActivity extends AppCompatActivity {
         textViewTitle = (TextView) findViewById(R.id.textView_title);
         title += (getIntent().getStringExtra("company")).toString();
 
-        if (title.equals("joong")) textViewTitle.setText("중앙일보");
-        if (title.equals("cho")) textViewTitle.setText("조선일보");
-        if (title.equals("dong")) textViewTitle.setText("동아일보");
-        if (title.equals("han")) textViewTitle.setText("한겨례");
-        if (title.equals("mk")) textViewTitle.setText("매일경제");
+        if (title.equals(CategoryCreater.COMPANY_JOONGANG)) textViewTitle.setText("중앙일보");
+        if (title.equals(CategoryCreater.COMPANY_JOSUN)) textViewTitle.setText("조선일보");
+        if (title.equals(CategoryCreater.COMPANY_DONGA)) textViewTitle.setText("동아일보");
+        if (title.equals(CategoryCreater.COMPANY_HAN)) textViewTitle.setText("한겨례");
+        if (title.equals(CategoryCreater.COMPANY_MK)) textViewTitle.setText("매일경제");
 
         btnBacktoMain = (Button) findViewById(R.id.btnBacktoMain);
 

@@ -7,6 +7,13 @@ import java.util.ArrayList;
  */
 public class CategoryCreater {
 
+    public static final String COMPANY_JOONGANG = "joong";
+    public static final String COMPANY_JOSUN = "jo";
+    public static final String COMPANY_DONGA = "dong";
+    public static final String COMPANY_HAN = "han";
+    public static final String COMPANY_MK = "mk";
+
+
     private static final String[] JUNG_TITLE = {"주요뉴스","인기뉴스","사회","경제","정치","IT/과학","스포츠","연예"};
     private static final String[] JUNG_URL = {
             "http://rss.joins.com/joins_homenews_list.xml",
@@ -69,31 +76,31 @@ public class CategoryCreater {
     public static ArrayList<CategoryInfo> create(String company){
         ArrayList<CategoryInfo> result = new ArrayList<>();
         switch (company){
-            case "cho":
+            case COMPANY_JOSUN:
                 for(int i = 0; i< JOSUN_TITLE.length; i++) {
                     CategoryInfo ci = new CategoryInfo(JOSUN_TITLE[i], JOSUN_URL[i],"UTF-8");
                     result.add(ci);
                 }
                 break;
-            case "jung":
+            case COMPANY_JOONGANG:
                 for(int i = 0; i< JUNG_TITLE.length; i++){
                     CategoryInfo ci = new CategoryInfo(JUNG_TITLE[i], JUNG_URL[i],"UTF-8");
                     result.add(ci);
                 }
                 break;
-            case "dong":
+            case COMPANY_DONGA:
                 for(int i = 0; i< DONGA_TITLE.length; i++) {
                     CategoryInfo ci = new CategoryInfo(DONGA_TITLE[i], DONGA_URL[i],"UTF-8");
                     result.add(ci);
                 }
                 break;
-            case "han":
+            case COMPANY_HAN:
                 for(int i = 0; i< HAN_TITLE.length; i++) {
                     CategoryInfo ci = new CategoryInfo(HAN_TITLE[i], HAN_URL[i],"EUC-KR");
                     result.add(ci);
                 }
                 break;
-            case "mk":
+            case COMPANY_MK:
                 for(int i = 0; i< MK_TITLE.length; i++) {
                     CategoryInfo ci = new CategoryInfo(MK_TITLE[i], MK_URL[i],"EUC-KR");
                     result.add(ci);
